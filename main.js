@@ -19,7 +19,6 @@ const createMarkup = function (data, timeline) {
           }hrs</p>
             `;
     t.insertAdjacentHTML("beforeend", html);
-    document.querySelector(`button.${timeline}`).classList.add("active");
   });
 };
 
@@ -37,15 +36,15 @@ changeData(weeklyBtn, "weekly");
 changeData(monthlyBtn, "monthly");
 
 weeklyBtn.classList.add("active");
+weeklyBtn.click();
 
 const removeActiveStatus = function () {
-  weeklyBtn.classList.remove("active");
   buttons.forEach((button) => {
     button.addEventListener("click", function (e) {
       buttons.forEach((ele) => {
         ele.classList.remove("active");
       });
-      e.currentTarget.classList.add("active");
+      e.target.classList.add("active");
     });
   });
 };
